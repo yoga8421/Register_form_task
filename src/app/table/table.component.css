@@ -1,0 +1,35 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .custom-table {
+    width: 80%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table, .custom-table th, .custom-table td {
+    border: 1px solid black;
+  }
+  
+  .custom-table th, .custom-table td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .button-container button {
+    margin: 5px 0;
+  }
+  

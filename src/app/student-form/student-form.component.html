@@ -1,0 +1,56 @@
+<!-- student-form.component.html -->
+
+<form #studentForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="student_name">Student Name:</label>
+    <input type="text" id="student_name" required [(ngModel)]="formData.student_name" name="student_name" pattern="[a-zA-Z ]+">
+  </div>
+
+  <div>
+    <label for="mobile_no">Mobile Number:</label>
+    <input type="text" id="mobile_no" required [(ngModel)]="formData.mobile_no" name="mobile_no" pattern="[0-9]+">
+  </div>
+
+  <div>
+    <label for="interest_course">Interest Course:</label>
+    <select id="interest_course" required [(ngModel)]="formData.interest_course" name="interest_course">
+      <option value="course1">Course 1</option>
+      <option value="course2">Course 2</option>
+      <option value="course3">Course 3</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="date_time">Date and Time:</label>
+    <input type="datetime-local" id="date_time" required [(ngModel)]="formData.date_time" name="date_time">
+  </div>
+
+  <div>
+    <span>Gender:</span>
+    <label for="male"><input type="radio" id="male" name="gender" value="male" required [(ngModel)]="formData.gender"> Male</label>
+    <label for="female"><input type="radio" id="female" name="gender" value="female" required [(ngModel)]="formData.gender"> Female</label>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Mobile Number</th>
+      <th>Interest Course</th>
+      <th>Date and Time</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ formData.student_name }}</td>
+      <td>{{ formData.mobile_no }}</td>
+      <td>{{ formData.interest_course }}</td>
+      <td>{{ formData.date_time }}</td>
+      <td>{{ formData.gender }}</td>
+    </tr>
+  </tbody>
+</table>

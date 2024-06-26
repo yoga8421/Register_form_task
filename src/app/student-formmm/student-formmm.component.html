@@ -1,0 +1,111 @@
+<div class="form-style-8">
+  <h2>Student Registration</h2>
+  <form (ngSubmit)="onSubmit(studentForm)" #studentForm="ngForm">
+
+
+    <input type="text" name="studentName" placeholder="Student Name" [(ngModel)]="studentName" required
+      pattern="[a-zA-Z ]*" #studentNameField="ngModel" />
+    <div *ngIf="studentNameField.invalid && (studentNameField.dirty || studentNameField.touched)">
+      <div *ngIf="studentNameField.errors?.['required']" [ngStyle]="{ 'color': 'red' }">Student Name is required.</div>
+      <div *ngIf="studentNameField.errors?.['pattern']" [ngStyle]="{ 'color': 'red' }">Only text is allowed.</div>
+    </div>
+
+
+
+
+    <input type="text" name="mobileNumber" placeholder="Mobile Number" [(ngModel)]="mobileNumber" required
+      pattern="[0-9]*" #mobileNumberField="ngModel" />
+    <div *ngIf="mobileNumberField.invalid && (mobileNumberField.dirty || mobileNumberField.touched)">
+      <div *ngIf="mobileNumberField.errors?.['required']" [ngStyle]="{ 'color': 'red' }">Mobile Number is required.
+      </div>
+      <div *ngIf="mobileNumberField.errors?.['pattern']" [ngStyle]="{ 'color': 'red' }">Only numbers are allowed.</div>
+    </div>
+
+
+
+
+
+
+
+    <select name="interestCourse" [(ngModel)]="interestCourse" required>
+      <option value="" disabled selected>Interest Course</option>
+      <option *ngFor="let course of courses" [value]="course">{{course}}</option>
+    </select>
+
+
+
+
+
+    <input type="datetime-local" name="dateTime" [(ngModel)]="dateTime" required />
+
+
+
+
+
+
+    <div>
+      <label>
+        <input type="radio" name="gender" [(ngModel)]="gender" value="Male" required />
+        Male
+      </label>
+      <label>
+        <input type="radio" name="gender" [(ngModel)]="gender" value="Female" required />
+        Female
+      </label>
+    </div>
+
+
+
+
+
+    <input type="submit" value="Submit" [disabled]="studentForm.invalid" />
+
+
+
+
+
+  </form>
+
+
+  
+
+
+</div>
+
+<h2>Display details</h2>       
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Ph.No</th>
+        <th>Course</th>
+        <th>Date</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="button-container">
+    <button (click)="onButton1Click()">Edit</button>
+    <button (click)="onButton2Click()">Clear</button>
+  </div>
+</div>
+
